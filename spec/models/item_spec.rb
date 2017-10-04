@@ -1,0 +1,13 @@
+require 'rails_helper'
+require 'faker'
+
+RSpec.describe Item, type: :model do
+  let(:list) { create(:list) }
+  let(:item) { create(:item) }
+
+  describe "attributes" do
+    it "has a body attribute" do
+      expect(item).to have_attributes(body: item.body)
+    end
+  end
+end
