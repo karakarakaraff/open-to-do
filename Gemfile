@@ -56,8 +56,4 @@ gem 'bcrypt'
 
 gem 'figaro', '1.0'
 
-# Devise is a flexible authentication solution. https://github.com/plataformatec/devise
-gem 'devise'
-
-# Seed data -- https://github.com/stympy/faker
 gem 'faker'
