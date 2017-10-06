@@ -3,13 +3,25 @@
 /.config
 /coverage/
 /InstalledFiles
-/log/development.log
 /pkg/
 /spec/reports/
 /spec/examples.txt
 /test/tmp/
 /test/version_tmp/
 /tmp/
+
+# Ignore the default SQLite database.
+/db/*.sqlite3
+/db/*.sqlite3-journal
+
+# Ignore all logfiles and tempfiles.
+/log/*
+/tmp/*
+!/log/.keep
+!/tmp/.keep
+
+# Ignore application configuration
+/config/application.yml
 
 # Used by dotenv library to load environment variables.
 # .env
