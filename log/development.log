@@ -1,0 +1,429 @@
+Started GET "/" for 127.0.0.1 at 2017-10-04 12:19:44 -0600
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/kara/.rvm/gems/ruby-2.4.0/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/kara/.rvm/gems/ruby-2.4.0/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb (5.4ms)
+Completed 200 OK in 172ms (Views: 10.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-04 12:22:45 -0600
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/kara/.rvm/gems/ruby-2.4.0/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/kara/.rvm/gems/ruby-2.4.0/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb (3.7ms)
+Completed 200 OK in 184ms (Views: 9.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-04 12:22:53 -0600
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/kara/.rvm/gems/ruby-2.4.0/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/kara/.rvm/gems/ruby-2.4.0/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb (2.5ms)
+Completed 200 OK in 7ms (Views: 4.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-04 12:24:44 -0600
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 243ms (Views: 240.7ms)
+
+
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateLists (20171004183929)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "lists" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20171004183929"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2017-10-04 18:40:39.771734"], ["updated_at", "2017-10-04 18:40:39.771734"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateItems (20171004184108)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "items" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "body" text, "list_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, CONSTRAINT "fk_rails_86a294a765"
+FOREIGN KEY ("list_id")
+  REFERENCES "lists" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_items_on_list_id" ON "items" ("list_id")[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20171004184108"]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_items_on_list_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_items_on_list_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "lists" ("title", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["title", "truffaut"], ["created_at", "2017-10-04 19:10:23.868961"], ["updated_at", "2017-10-04 19:10:23.868961"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "items" ("body", "list_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["body", "Tumblr neutra heirloom cornhole cronut pickled. Pickled beard disrupt polaroid ethical fashion axe. Taxidermy lumbersexual cold-pressed pbr&b bitters art party hella selfies."], ["list_id", 1], ["created_at", "2017-10-04 19:10:23.875212"], ["updated_at", "2017-10-04 19:10:23.875212"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.8ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "lists" ("title", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["title", "whatever"], ["created_at", "2017-10-04 19:10:31.341167"], ["updated_at", "2017-10-04 19:10:31.341167"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20171005170739)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar, "password_digest" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20171005170739"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_items_on_list_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_items_on_list_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+DEPRECATION WARNING: Passing string to be evaluated in :if and :unless conditional options is deprecated and will be removed in Rails 5.2 without replacement. Pass a symbol for an instance method, or a lambda, proc or block, instead. (called from <class:User> at /Users/kara/bloc/open-to-do/app/models/user.rb:6)
+DEPRECATION WARNING: Passing string to be evaluated in :if and :unless conditional options is deprecated and will be removed in Rails 5.2 without replacement. Pass a symbol for an instance method, or a lambda, proc or block, instead. (called from <class:User> at /Users/kara/bloc/open-to-do/app/models/user.rb:6)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) LIMIT ?[0m  [["username", ""], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) LIMIT ?[0m  [["username", "x"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) LIMIT ?[0m  [["username", "troy_thiel"], ["LIMIT", 1]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["username", "troy_thiel"], ["password_digest", "UkHx0q9m"], ["created_at", "2017-10-05 17:27:10.618116"], ["updated_at", "2017-10-05 17:27:10.618116"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.7ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) LIMIT ?[0m  [["username", ""], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+DEPRECATION WARNING: Passing string to be evaluated in :if and :unless conditional options is deprecated and will be removed in Rails 5.2 without replacement. Pass a symbol for an instance method, or a lambda, proc or block, instead. (called from <class:User> at /Users/kara/bloc/open-to-do/app/models/user.rb:6)
+DEPRECATION WARNING: Passing string to be evaluated in :if and :unless conditional options is deprecated and will be removed in Rails 5.2 without replacement. Pass a symbol for an instance method, or a lambda, proc or block, instead. (called from <class:User> at /Users/kara/bloc/open-to-do/app/models/user.rb:6)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered welcome/index.html.erb within layouts/application (0.3ms)
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+Completed 200 OK in 9ms (Views: 7.6ms | ActiveRecord: 0.0ms)
+
+
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "lists" ("title", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["title", "migas"], ["created_at", "2017-10-05 17:43:43.375872"], ["updated_at", "2017-10-05 17:43:43.375872"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "items" ("body", "list_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["body", "+1 pbr&b narwhal literally truffaut. Letterpress pop-up brunch ethical offal franzen retro banh mi. Austin xoxo quinoa artisan fanny pack farm-to-table cold-pressed. Knausgaard leggings cray austin godard roof. Yuccie park lo-fi tacos kinfolk blue bottle pbr&b."], ["list_id", 1], ["created_at", "2017-10-05 17:43:43.387763"], ["updated_at", "2017-10-05 17:43:43.387763"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "lists" ("title", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["title", "migas"], ["created_at", "2017-10-05 17:43:43.416865"], ["updated_at", "2017-10-05 17:43:43.416865"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) LIMIT ?[0m  [["username", ""], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) LIMIT ?[0m  [["username", "x"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) LIMIT ?[0m  [["username", "amari"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["username", "amari"], ["password_digest", "1fDbC462Xl"], ["created_at", "2017-10-05 17:43:43.892258"], ["updated_at", "2017-10-05 17:43:43.892258"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) LIMIT ?[0m  [["username", ""], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+DEPRECATION WARNING: Passing string to be evaluated in :if and :unless conditional options is deprecated and will be removed in Rails 5.2 without replacement. Pass a symbol for an instance method, or a lambda, proc or block, instead. (called from <class:User> at /Users/kara/bloc/open-to-do/app/models/user.rb:6)
+DEPRECATION WARNING: Passing string to be evaluated in :if and :unless conditional options is deprecated and will be removed in Rails 5.2 without replacement. Pass a symbol for an instance method, or a lambda, proc or block, instead. (called from <class:User> at /Users/kara/bloc/open-to-do/app/models/user.rb:6)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered welcome/index.html.erb within layouts/application (0.2ms)
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+Completed 200 OK in 8ms (Views: 6.5ms | ActiveRecord: 0.0ms)
+
+
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "lists" ("title", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["title", "leggings"], ["created_at", "2017-10-05 17:44:09.484902"], ["updated_at", "2017-10-05 17:44:09.484902"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "items" ("body", "list_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["body", "Brunch +1 post-ironic. Mumblecore yr banh mi. Organic sartorial mumblecore brunch leggings brooklyn. Flexitarian chambray muggle magic bespoke. Vegan messenger bag etsy."], ["list_id", 1], ["created_at", "2017-10-05 17:44:09.493506"], ["updated_at", "2017-10-05 17:44:09.493506"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.9ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "lists" ("title", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["title", "leggings"], ["created_at", "2017-10-05 17:44:09.538237"], ["updated_at", "2017-10-05 17:44:09.538237"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) LIMIT ?[0m  [["username", ""], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) LIMIT ?[0m  [["username", "x"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) LIMIT ?[0m  [["username", "jordon_feil"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["username", "jordon_feil"], ["password_digest", "57RvSzQ"], ["created_at", "2017-10-05 17:44:10.077223"], ["updated_at", "2017-10-05 17:44:10.077223"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) LIMIT ?[0m  [["username", ""], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddUserToLists (20171005174723)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "lists" ADD "user_id" integer[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_lists_on_user_id" ON "lists" ("user_id")[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20171005174723"]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_items_on_list_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_items_on_list_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_lists_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_lists_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddPrivateToLists (20171005175122)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "lists" ADD "private" boolean[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20171005175122"]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_items_on_list_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_items_on_list_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_lists_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_lists_on_user_id' AND type='index'
+[0m
+DEPRECATION WARNING: Passing string to be evaluated in :if and :unless conditional options is deprecated and will be removed in Rails 5.2 without replacement. Pass a symbol for an instance method, or a lambda, proc or block, instead. (called from <class:User> at /Users/kara/bloc/open-to-do/app/models/user.rb:8)
+DEPRECATION WARNING: Passing string to be evaluated in :if and :unless conditional options is deprecated and will be removed in Rails 5.2 without replacement. Pass a symbol for an instance method, or a lambda, proc or block, instead. (called from <class:User> at /Users/kara/bloc/open-to-do/app/models/user.rb:8)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+DEPRECATION WARNING: Passing string to be evaluated in :if and :unless conditional options is deprecated and will be removed in Rails 5.2 without replacement. Pass a symbol for an instance method, or a lambda, proc or block, instead. (called from <class:User> at /Users/kara/bloc/open-to-do/app/models/user.rb:8)
+DEPRECATION WARNING: Passing string to be evaluated in :if and :unless conditional options is deprecated and will be removed in Rails 5.2 without replacement. Pass a symbol for an instance method, or a lambda, proc or block, instead. (called from <class:User> at /Users/kara/bloc/open-to-do/app/models/user.rb:8)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered welcome/index.html.erb within layouts/application (0.2ms)
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+Completed 200 OK in 8ms (Views: 6.3ms | ActiveRecord: 0.0ms)
+
+
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) LIMIT ?[0m  [["username", "angelica_sauer"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["username", "angelica_sauer"], ["password_digest", "QbQjUgIhUn"], ["created_at", "2017-10-05 17:56:17.372929"], ["updated_at", "2017-10-05 17:56:17.372929"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "lists" ("title", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["title", "tacos"], ["created_at", "2017-10-05 17:56:17.380847"], ["updated_at", "2017-10-05 17:56:17.380847"], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "items" ("body", "list_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["body", "Schlitz mlkshk slow-carb. Cardigan readymade selfies whatever. Iphone cold-pressed seitan yuccie kogi drinking."], ["list_id", 1], ["created_at", "2017-10-05 17:56:17.383748"], ["updated_at", "2017-10-05 17:56:17.383748"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) LIMIT ?[0m  [["username", "angelica_sauer"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["username", "angelica_sauer"], ["password_digest", "QbQjUgIhUn"], ["created_at", "2017-10-05 17:56:17.450958"], ["updated_at", "2017-10-05 17:56:17.450958"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "lists" ("title", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["title", "tacos"], ["created_at", "2017-10-05 17:56:17.453109"], ["updated_at", "2017-10-05 17:56:17.453109"], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) LIMIT ?[0m  [["username", ""], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) LIMIT ?[0m  [["username", "x"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) LIMIT ?[0m  [["username", "angelica_sauer"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["username", "angelica_sauer"], ["password_digest", "QbQjUgIhUn"], ["created_at", "2017-10-05 17:56:17.964818"], ["updated_at", "2017-10-05 17:56:17.964818"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) LIMIT ?[0m  [["username", ""], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+DEPRECATION WARNING: Passing string to be evaluated in :if and :unless conditional options is deprecated and will be removed in Rails 5.2 without replacement. Pass a symbol for an instance method, or a lambda, proc or block, instead. (called from <class:User> at /Users/kara/bloc/open-to-do/app/models/user.rb:8)
+DEPRECATION WARNING: Passing string to be evaluated in :if and :unless conditional options is deprecated and will be removed in Rails 5.2 without replacement. Pass a symbol for an instance method, or a lambda, proc or block, instead. (called from <class:User> at /Users/kara/bloc/open-to-do/app/models/user.rb:8)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered welcome/index.html.erb within layouts/application (0.3ms)
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+Completed 200 OK in 10ms (Views: 8.0ms | ActiveRecord: 0.0ms)
+
+
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) LIMIT ?[0m  [["username", "curtis"], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["username", "curtis"], ["password_digest", "$2a$10$bCAKHqjpSG3iJ4PonP4opettOYF.1IF095JE/d7L.Ucxd/j84E7.C"], ["created_at", "2017-10-05 18:06:07.455330"], ["updated_at", "2017-10-05 18:06:07.455330"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "lists" ("title", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["title", "try-hard"], ["created_at", "2017-10-05 18:06:07.460421"], ["updated_at", "2017-10-05 18:06:07.460421"], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "items" ("body", "list_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["body", "Austin seitan selfies. Kinfolk yuccie fashion axe. Poutine health chicharrones seitan banjo."], ["list_id", 1], ["created_at", "2017-10-05 18:06:07.464071"], ["updated_at", "2017-10-05 18:06:07.464071"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (2.7ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) LIMIT ?[0m  [["username", "curtis"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["username", "curtis"], ["password_digest", "$2a$10$kXCr./.N/G4ZY0/a91sds.A0qUHNEOWbGHCyfQ0qFr5h1nbuRZY/m"], ["created_at", "2017-10-05 18:06:07.682558"], ["updated_at", "2017-10-05 18:06:07.682558"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "lists" ("title", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["title", "try-hard"], ["created_at", "2017-10-05 18:06:07.684901"], ["updated_at", "2017-10-05 18:06:07.684901"], ["user_id", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) LIMIT ?[0m  [["username", ""], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) LIMIT ?[0m  [["username", "x"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) LIMIT ?[0m  [["username", "curtis"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["username", "curtis"], ["password_digest", "$2a$10$S9Ze4V6gnftD3S9p/KDh7.3uXtz63HxgYx8XJU50qr7Sqdl4AuDdu"], ["created_at", "2017-10-05 18:06:08.283091"], ["updated_at", "2017-10-05 18:06:08.283091"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER(?) LIMIT ?[0m  [["username", ""], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
