@@ -2,16 +2,12 @@ class User < ApplicationRecord
   has_many :lists, dependent: :destroy
 
   validates :username,
-            length: { minimum: 1, maximum: 100 },
             presence: true,
+            length: { minimum: 1, maximum: 100 },
             uniqueness: { case_sensitive: false }
   validates :password,
             presence: true,
-            length: { minimum: 6 },
-            if: "password_digest.nil?"
-  validates :password,
-            length: { minimum: 6 },
-            allow_blank: true
+            length: { minimum: 6 }
 
   has_secure_password
 end
