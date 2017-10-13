@@ -31,4 +31,4 @@ items = Item.all
 puts "Seed finished"
 puts "#{User.count} users"
 puts "#{List.count} lists"
-puts "#{Item.count} posts"
+puts "#{Item.count} items"
