@@ -1,11 +1,54 @@
-# Open To-Do API
+# Open To Do API
 
-Open To Do is an externally usable API for a basic to-do list application. This API will allow users to modify user accounts and to-do items from the command line.
+Open To Do is an externally usable API for a basic to-do list application. Users can create accounts, create to-do lists with items, update their lists and items, and delete lists, items or user accounts — all from the command line.
 
-## User stories in progress:
+Open To Do uses [bcrypt](https://github.com/codahale/bcrypt-ruby) and Rails' `has_secure_password` feature to convert each password into a password digest. The `--digest` flag is then used in the [curl](https://curl.haxx.se/) requests below.
 
-* As the API, I want to return JSON representations of users, lists and items
-* As a user, I want to authenticate myself from the command line using a username and password
-* As a user, I want to create new users, lists and items from the command line
-* As a user, I want to remove users and lists from the command line
-* As a user, I want to update list and item attributes from the command line
+## Usage examples
+Create a user.
+```
+curl -d "user[username]=<your username>" -d "user[password]=<your password>" http://localhost:3000/api/users
+```
+
+View a list of all users.
+```
+$ curl --digest -u username:password http://localhost:3000/api/users
+```
+
+Create a to-do list.
+```
+$ curl --digest -u username:password -d "list[title]=<your list title>" -d "list[private]=<true or false>" http://localhost:3000/api/users/<user ID here>/lists
+```
+
+Create a to-do item.
+```
+$ curl --digest -u username:password -d "item[body]=<your item body>" -d "item[complete]=false" http://localhost:3000/api/lists/<list ID here>/items
+```
+
+Update a to-do list.
+```
+$ curl -X PUT --digest -u username:password -d "list[<attribute to update>]=<your update>" http://localhost:3000/api/users/<user ID here>/lists/<list ID here>
+```
+
+Update a to-do item.
+```
+$ curl -X PUT --digest -u username:password -d "item[<attribute to update]=<your update>" http://localhost:3000/api/items/<item ID here>
+```
+
+Delete a to-do item.
+```
+$ curl --digest -u username:password -X DELETE http://localhost:3000/api/items/<item ID here>
+```
+
+Delete a to-do list. (This will also delete all associated to-do items.)
+```
+$ curl --digest -u username:password -X DELETE http://localhost:3000/api/users/<user ID here>/lists/<list ID here>
+```
+
+Delete a user. (This will also delete all associated to-do lists and their items.)
+```
+$ curl --digest -u username:password -X DELETE http://localhost:3000/api/users/<user ID here>
+```
+
+---
+This project was built for [Bloc's Web Development Program](https://www.bloc.io/).
